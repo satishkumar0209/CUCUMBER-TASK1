@@ -70,71 +70,19 @@ public class Stackoverflow
 		System.out.println("Total questions ="+text);
 	}
 
-	@When("^Capturing the screen print of first page$")
-	public void capturing_the_screen_print_of_first_page() throws Throwable
+	@When("^Capturing the screen print up to five pages$")
+	public void capturing_the_screen_print_up_to_five_pages() throws Throwable
 	{
-		String url=driver.getCurrentUrl();
-		System.out.println("page1="+url);
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    FileUtils.copyFile(scrFile, new File("D://screen shots//page1.png"));
-	   
-	   
-	}
-
-	@When("^capturing the screen print of Second page$")
-	public void capturing_the_screen_print_of_Second_page() throws Throwable
-	{
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(".//span[@class='page-numbers next']")).click();
-		Thread.sleep(3000);
-		String url1=driver.getCurrentUrl();
-		System.out.println("page2="+url1);
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    FileUtils.copyFile(scrFile, new File("D://screen shots//page2.png"));
-	   
-	  
-	}
-
-	@When("^capturing the screen print of Third page$")
-	public void capturing_the_screen_print_of_Third_page() throws Throwable 
-	{
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(".//span[@class='page-numbers next']")).click();
-		Thread.sleep(3000);
-		String url1=driver.getCurrentUrl();
-		System.out.println("page3="+url1);
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    FileUtils.copyFile(scrFile, new File("D://screen shots//page3.png"));
-	   
-	  
-	}
-
-	@When("^capturing the screen print of Fourth page$")
-	public void capturing_the_screen_print_of_Fourth_page() throws Throwable
-	{
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(".//span[@class='page-numbers next']")).click();
-		Thread.sleep(3000);
-		String url1=driver.getCurrentUrl();
-		System.out.println("page4="+url1);
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    FileUtils.copyFile(scrFile, new File("D://screen shots//page4.png"));
-	   
-	   
-	}
-
-	@When("^capturing the screen print of Fifth page$")
-	public void capturing_the_screen_print_of_Fifth_page() throws Throwable 
-	{
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(".//span[@class='page-numbers next']")).click();
-		Thread.sleep(3000);
-		String url1=driver.getCurrentUrl();
-		System.out.println("page5="+url1);
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    FileUtils.copyFile(scrFile, new File("D://screen shots//page5.png"));
-	   
-	  
+		for (int i =0; i<4; i++)
+			{
+				
+				WebElement page =driver.findElement(By.xpath("//span[@class='page-numbers next']"));
+				page.click();
+				Random rand = new Random();
+				int Randomnumber = rand.nextInt(5);
+				File screenshotfile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(screenshotfile, new File("/home/aaditya/Desktop/settings" 		                                      +Randomnumber+".png"));
+			}
 	}
 
 	@Then("^Logout$")
