@@ -12,10 +12,6 @@ And Click on sign in button
 When Login page should displayed
 	And Hiding the URl
 	And Getting the text
-	And Capturing the screen print of first page
-	And capturing the screen print of Second page
-	And capturing the screen print of Third page
-	And capturing the screen print of Fourth page
-	And capturing the screen print of Fifth page
+	And Capturing the screen print up to five pages
 Then Logout
 	And Close the browser
