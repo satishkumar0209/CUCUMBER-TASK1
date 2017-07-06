@@ -74,8 +74,6 @@ public class Stackoverflow
 				
 				WebElement page =driver.findElement(By.xpath("//span[@class='page-numbers next']"));
 				page.click();
-				Random rand = new Random();
-				int Randomnumber = rand.nextInt(5);
 				File screenshotfile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				FileUtils.copyFile(screenshotfile, new File("/home/aaditya/Desktop/settings" +Randomnumber+".png")); 		                                      +Randomnumber+".png"));
 			}
