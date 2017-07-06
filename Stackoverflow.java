@@ -29,23 +29,18 @@ public class Stackoverflow
 	@Given("^Provide valid credentials$")
 	public void provide_valid_credentials() throws Throwable
 	{
-		
 		 driver.findElement(By.name("email")).sendKeys("gsatishkumar0209@gmail.com");
-		 driver.findElement(By.id("password")).sendKeys("stackoverflow@123");
-		
+		 driver.findElement(By.id("password")).sendKeys("stackoverflow@123");		
 	}
-
 	@Given("^Click on sign in button$")
 	public void click_on_sign_in_button() throws Throwable 
 	{
 		driver.findElement(By.id("submit-button")).click();
 	  
 	}
-
 	@When("^Login page should displayed$")
 	public void login_page_should_displayed() throws Throwable 
 	{
-	
 		Thread.sleep(4000);
 		Assert.assertEquals("https://stackoverflow.com/", "https://stackoverflow.com/");
 	}
@@ -71,7 +66,6 @@ public class Stackoverflow
 	{
 		for (int i =0; i<4; i++)
 			{
-				
 				WebElement page =driver.findElement(By.xpath("//span[@class='page-numbers next']"));
 				page.click();
 				File screenshotfile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
