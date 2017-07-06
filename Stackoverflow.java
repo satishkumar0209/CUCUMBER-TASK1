@@ -85,12 +85,7 @@ public class Stackoverflow
 			}
 	}
 
-	@Then("^Logout$")
-	public void logout() throws Throwable 
-	{
-		System.out.println("logout succssfully");
-	    
-	}
+	
 
 	@Then("^Close the browser$")
 	public void close_the_browser() throws Throwable 
