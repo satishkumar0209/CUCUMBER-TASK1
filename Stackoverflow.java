@@ -20,9 +20,9 @@ public class Stackoverflow
 	@Given("^Navigate to stack over flow URL$")
 	public void navigate_to_stack_over_flow_URL() throws Throwable
 	{
-		System.setProperty("webdriver.gecko.driver", "D://satish//geckodriver.exe");
-	    driver=new FirefoxDriver();
-	    driver.manage().window().maximize();
+	System.setProperty("webdriver.gecko.driver", "D://satish//geckodriver.exe");
+	driver=new FirefoxDriver();
+	driver.manage().window().maximize();
 	    driver.get("https://stackoverflow.com/users/login");
 	}
 
@@ -42,7 +42,8 @@ public class Stackoverflow
 	public void login_page_should_displayed() throws Throwable 
 	{
 		Thread.sleep(4000);
-		Assert.assertEquals("https://stackoverflow.com/", "https://stackoverflow.com/");
+		String url=driver.getCurrentUrl();
+		Assert.assertEquals(url, "https://stackoverflow.com/");
 	}
 
 	@When("^Hiding the URl$")
@@ -68,9 +69,27 @@ public class Stackoverflow
 			{
 				WebElement page =driver.findElement(By.xpath("//span[@class='page-numbers next']"));
 				page.click();
+				Random rand = new Random();
+				int Randomnumber = rand.nextInt(5);
 				File screenshotfile= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 				FileUtils.copyFile(screenshotfile, new File("/home/aaditya/Desktop/settings" +Randomnumber+".png")); 		                                      +Randomnumber+".png"));
 			}
+		
+	@Then("^Logout$")
+	public void logout() throws Throwable 
+	{
+		System.out.println("logout succssfully");
+	    
+	}
+
+	@Then("^Close the browser$")
+	public void close_the_browser() throws Throwable 
+	{
+		driver.quit();
+	   
+	}
+
+		
 	}
 
 	
